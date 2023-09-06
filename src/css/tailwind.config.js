@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const plugin = require("tailwindcss/plugin");
-const { collegeColor } = require("../data/collegeColor");
+//const { collegeColor } = require("../data/collegeColor");
 
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],

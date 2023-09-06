@@ -21,13 +21,13 @@ function Academy() {
   */
 
   const collegeColors=[
-          "#930eab",
-          "#91608e",
-          "#a0b567",
-          "#8a3e85",
-          "#ab0a98",
-          "#664d4b",
-  ];
+    "#930eab",
+    "#91608e",
+    "#a0b567",
+    "#8a3e85",
+    "#ab0a98",
+    "#664d4b",
+];
   
   const chartData = {
     labels,
