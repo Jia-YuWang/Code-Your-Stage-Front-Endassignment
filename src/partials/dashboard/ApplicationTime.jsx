@@ -6,7 +6,7 @@ import LineChart from "../../charts/LineChart01";
 import { tailwindConfig, hexToRGB } from "../../utils/Utils";
 
 function ApplicationTime() {
-  // const { labels, values } = useApplicationStats(); // API
+  const { labels, values } = useApplicationStats(); // API
   //const { labels, values } = applicationStats; // mock data
   const chartData = {
     labels,
