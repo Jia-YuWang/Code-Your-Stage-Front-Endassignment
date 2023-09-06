@@ -12,6 +12,7 @@ export default defineConfig({
   css: {
     postcss
   },
+  
   plugins: [react()],
   resolve: {
     alias: [
@@ -27,3 +28,5 @@ export default defineConfig({
     }
   }
 });
+
+
