@@ -1,11 +1,11 @@
 import DoughnutChart from "../../charts/DoughnutChart";
-//import { academyStats } from "../../data/mockData";//mock data
+// import { academyStats } from "../../data/mockData";//mock data
 
- import useAcademystats from "../../hooks/dashboard/useAcademystats";
+import useAcademystats from "../../hooks/dashboard/useAcademystats";
 
 function Academy() {
   
-  // const { labels, values } = useAcademystats(); //mock data
+  // const { labels, values } = academyStats; //mock data
   const {labels, values} = useAcademystats();
   /*
   // 生成隨機色碼的函式
@@ -27,7 +27,8 @@ function Academy() {
     "#8a3e85",
     "#ab0a98",
     "#664d4b",
-];
+    "#f6e328"
+  ];
   
   const chartData = {
     labels,
@@ -35,7 +36,7 @@ function Academy() {
       {
         label: "Distribution of colleges",
         data: values,
-        backgroundColor:collegeColors,
+        backgroundColor: collegeColors,
         borderWidth: 0
       }
     ]

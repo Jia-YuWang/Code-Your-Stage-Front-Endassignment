@@ -30,15 +30,15 @@ function newdata(qwer){
       (qwer["物理治療學系"] || 0) + (qwer["醫學工程學系"] || 0);
   
   
-const 學院計數 = {
-    "理學院": 理學院,
-    "工學院": 工學院,
-    "商管學院": 商管學院,
-    "文法學院": 文法學院,
-    "創新學院": 創新學院,
-    "電資學院": 電資學院,
-    "醫學院": 醫學院,
-  };
+  const 學院計數 = {
+      "理學院": 理學院,
+      "工學院": 工學院,
+      "商管學院": 商管學院,
+      "文法學院": 文法學院,
+      "創新學院": 創新學院,
+      "電資學院": 電資學院,
+      "醫學院": 醫學院,
+    };
   
   return 學院計數;
 };
@@ -46,10 +46,11 @@ const 學院計數 = {
 const useAcademystats = () => {
   
   const { data } = useSWRFetch("https://api.projectszero.tech/getAcademyStats");
-  
-  const result = newdata(data);
-  
-
+  let result;
+  if (data) {
+    result = newdata(data);
+    console.log(result);
+  }
   
   return {
     labels: result && Object.keys(result),
