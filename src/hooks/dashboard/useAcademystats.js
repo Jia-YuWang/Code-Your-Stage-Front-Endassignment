@@ -49,7 +49,7 @@ const useAcademystats = () => {
   let result;
   if (data) {
     result = newdata(data);
-    console.log(result);
+    //console.log(result);
   }
   
   return {
