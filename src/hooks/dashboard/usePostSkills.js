@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { skills } from "../../data/mockData";
@@ -20,7 +18,7 @@ const usePostSkills = () => {
   const [, setCookie] = useCookies(["studentId"]);
   return async (studentId, skills) => {
     try {
-      console.log(studentId, skills)
+      //console.log(studentId, skills)
       await axios.post(`https://api.projectszero.tech/skills/${studentId}`, 
        skills,{header:headers})
        
@@ -31,5 +29,5 @@ const usePostSkills = () => {
     }
   };
 };
-console.log(skills);
+//console.log(skills);
 export default usePostSkills;

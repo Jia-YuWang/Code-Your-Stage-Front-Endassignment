@@ -2,7 +2,11 @@ import useSWRFetch from "../useSWRFetch";
 
 const useSkills = (studentId) => {
   // finish it by yourself
-  const {studentId,skills} = useSWRFetch("https://api.projectszero.tech/skills/${studentId");
+  const {data} = useSWRFetch("https://api.projectszero.tech/skills/${studentId}");
+  return {
+    labels: data && Object.keys(data),
+    values: data && Object.values(data)
+  };
 
 };
 
@@ -10,3 +14,4 @@ export default useSkills;
 
 
 // objective: finsih "post" api 
+// 你模仿useGradeStats.js
