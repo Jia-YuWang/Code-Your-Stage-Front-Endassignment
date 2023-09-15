@@ -1,56 +1,35 @@
-/*import axios from "axios";
+
+
+import axios from "axios";
 import { useCookies } from "react-cookie";
+import { skills } from "../../data/mockData";
+
+const headers={
+  'access-control-allow-origin': 'https://api.projectszero.tech', 
+  //'connection': 'keep-SpeechRecognitionAlternative', 
+  //'content-length': '42', 
+  'content-type': 'application/json', 
+  //'date': 'Tue12 Sep 2023 03:25:09 GMT', 
+  //'server': 'nginx/1.18.0 (Ubuntu)' ,
+  //'vary': 'Origin' 
+
+};
+
 
 const usePostSkills = () => {
   const [, setCookie] = useCookies(["studentId"]);
   return async (studentId, skills) => {
     try {
-      await axios.post(`https://api.projectszero.tech/skills/${studentId}`, {
-        skill: skills,
-        thisIsDefinitelyWrong: true
-      });
-      setCookie("studentId", studentId);
+      console.log(studentId, skills)
+      await axios.post(`https://api.projectszero.tech/skills/${studentId}`, 
+       skills,{header:headers})
+       
+      "studentId", studentId;
       alert("送出成功");
     } catch (error) {
       alert(error);
     }
   };
 };
-
-export default usePostSkills;*/
-
-
-import axios from "axios";
-import { useCookies } from "react-cookie";
-
-const usePostSkills = () => {
-  const [, setCookie] = useCookies(["studentId"]);
-  return async (studentId, skills) => {
-    try {
-      // Validate the studentId here if needed.
-
-      const response = await axios.post(`https://api.projectszero.tech/skills/${studentId}`, {
-        skill: skills,
-      });
-
-      if (response.status === 200 && response.data.message === "Skills updated successfully") {
-        setCookie("studentId", studentId);
-        message("Skills updated successfully");
-      } else {
-        alert("Skills updated failed");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-
-      if (error.response && error.response.status === 400) {
-        // Handle 400 Bad Request response
-        alert("Invalid Input: " + error.response.data.error);
-      } else {
-        // Handle other errors
-        alert("技能更新失敗");
-      }
-    }
-  };
-};
-
+console.log(skills);
 export default usePostSkills;

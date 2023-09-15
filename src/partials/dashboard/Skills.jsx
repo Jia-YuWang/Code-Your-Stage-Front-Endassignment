@@ -8,9 +8,9 @@ import {
   Legend
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
-
+// import useSkills from "src/hooks/dashboard/useSkills.js";
 // Import utilities
-// import { useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import { tailwindConfig } from "../../utils/Utils";
 import { skills } from "../../data/mockData";
 
@@ -24,9 +24,12 @@ ChartJS.register(
 );
 
 function Skills() {
-  // const [cookies] = useCookies(["studentId"]);
-  // const { studentId } = cookies;
-  const studentId = "B11000000";
+  const [cookies] = useCookies(["studentId"]);
+  const { studentId } = cookies;
+  // const studentId = "B11000000";
+
+  // useSkills(); 
+  
   const { labels, values } = skills;
   const chartData = {
     labels,
@@ -49,14 +52,18 @@ function Skills() {
           Skills
         </h2>
       </header>
-      {studentId ? (
+      {/* {studentId ? (
         <div className="flex align-center flex-col px-28 bg-white">
           <div className="text-center my-4">學號：{studentId}</div>
           <Radar data={chartData} />
         </div>
       ) : (
         <div className="pt-20 text-center">尚未輸入數值，請先送出右方表單</div>
-      )}
+      )} */}
+      <div className="flex align-center flex-col px-28 bg-white">
+        <div className="text-center my-4">學號：{studentId}</div>
+        <Radar data={chartData} />
+      </div>
     </div>
   );
 }

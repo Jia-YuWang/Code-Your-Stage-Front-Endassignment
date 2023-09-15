@@ -2,7 +2,7 @@ import { useState } from "react";
 import usePostSkills from "../../hooks/dashboard/usePostSkills";
 
 function SkillsForm() {
-  const [studentId, setStudentId] = useState();
+  const [studentId, setStudentId] = useState("");
   const [skills, setSkills] = useState({
     UIUX: 0,
     backend: 0,
@@ -26,6 +26,7 @@ function SkillsForm() {
         className="p-6 px-8"
         onSubmit={(e) => {
           e.preventDefault();
+          // console.log(studentId, skills);
           postForm(studentId, skills);
         }}
       >
@@ -36,6 +37,7 @@ function SkillsForm() {
             className="w-full border rounded"
             value={studentId}
             onChange={(e) => setStudentId(e.target.value)}
+            
           />
         </div>
         {Object.keys(skills).map((skill) => (
@@ -46,6 +48,7 @@ function SkillsForm() {
               value={skills[skill]}
               onChange={(e) =>
                 handleSelectChange(skill, Number(e.target.value))
+                
               }
             >
               {[...Array(11).keys()].map(
@@ -67,6 +70,7 @@ function SkillsForm() {
           Submit
         </button>
       </form>
+      
     </div>
   );
 }
