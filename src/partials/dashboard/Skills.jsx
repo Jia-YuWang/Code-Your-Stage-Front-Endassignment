@@ -8,11 +8,12 @@ import {
   Legend
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
-// import useSkills from "src/hooks/dashboard/useSkills.js";
+
+import useSkills from "../../hooks/dashboard/useSkills.js";
 // Import utilities
 import { useCookies } from "react-cookie";
 import { tailwindConfig } from "../../utils/Utils";
-import { skills } from "../../data/mockData";
+//import { skills } from "../../data/mockData";
 
 ChartJS.register(
   RadialLinearScale,
@@ -27,23 +28,32 @@ function Skills() {
   const [cookies] = useCookies(["studentId"]);
   const { studentId } = cookies;
   // const studentId = "B11000000";
+  const labels=[
+    
+      "UIUX",
+      "backend",
+      "business analysis",
+      "design thinking",
+      "frontend"
+  
+  ];
 
   // useSkills(); 
-  
-  const { labels, values } = skills;
+  console.log(studentId);
+  //const { labels, values } = useSkills(studentId);
   const chartData = {
     labels,
     datasets: [
       {
         label: "能力值",
-        data: values,
+        data: studentId?useSkills(studentId).values:[0,0,0,0,0],
         backgroundColor: tailwindConfig().theme.colors.orange[500],
         borderColor: tailwindConfig().theme.colors.orange[500],
         borderWidth: 2
       }
     ]
   };
-
+//console.log(studentId);這裡studentId值沒有下來
   return (
     <div className="flex flex-col col-span-12 sm:col-span-6 bg-white  shadow-lg border border-slate-200 dark:border-slate-700">
       <header className="px-5 py-4 border-b dark:border-slate-700 border-slate-100">

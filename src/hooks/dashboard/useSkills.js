@@ -2,10 +2,16 @@ import useSWRFetch from "../useSWRFetch";
 
 const useSkills = (studentId) => {
   // finish it by yourself
-  const {data} = useSWRFetch("https://api.projectszero.tech/skills/${studentId}");
+  const {data} = useSWRFetch(`https://api.projectszero.tech/skills/${studentId}`);
   return {
-    labels: data && Object.keys(data),
-    values: data && Object.values(data)
+    labels:  [
+      "UIUX",
+      "backend",
+      "business analysis",
+      "design thinking",
+      "frontend"
+    ],
+    values: data?Object.values(data):[0,0,0,0,0]
   };
 
 };
